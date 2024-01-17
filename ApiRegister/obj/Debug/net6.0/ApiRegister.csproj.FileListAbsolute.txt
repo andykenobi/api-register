@@ -32,3 +32,14 @@ C:\Users\andyk\source\repos\api-register\ApiRegister\obj\Debug\net6.0\refint\Api
 C:\Users\andyk\source\repos\api-register\ApiRegister\obj\Debug\net6.0\ApiRegister.pdb
 C:\Users\andyk\source\repos\api-register\ApiRegister\obj\Debug\net6.0\ApiRegister.genruntimeconfig.cache
 C:\Users\andyk\source\repos\api-register\ApiRegister\obj\Debug\net6.0\ref\ApiRegister.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll

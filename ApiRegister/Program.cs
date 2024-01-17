@@ -1,3 +1,4 @@
+using ApiRegister.Context;
 using ApiRegister.Mapper;
 using ApiRegister.Repositories.Clients;
 using ApiRegister.Services.Clients;
@@ -19,6 +20,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IClientService, ClientService>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IViacepService, ViacepService>();
+builder.Services.AddDbContext<ApiRegisterContext>();
 
 var app = builder.Build();
 

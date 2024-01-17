@@ -1,4 +1,5 @@
-﻿using ApiRegister.DTOs.Clients;
+﻿using ApiRegister.DTOs;
+using ApiRegister.DTOs.Clients;
 using ApiRegister.Models;
 using ApiRegister.Repositories.Clients;
 using ApiRegister.Services.Viaceps;
@@ -19,40 +20,69 @@ namespace ApiRegister.Services.Clients
             _mapper = mapper;
         }
 
-        public async Task<GetClientResponse> Get(string id)
+        public async Task<Response<GetClientResponse>> Get(long id)
         {
-            var client = await _repository.Get(id);
-            var response = _mapper.Map<GetClientResponse>(client);
+            var response = new Response<GetClientResponse>();
+
+            var result = await _repository.Get(id);
+
+            if (result == null)
+                response.Errors.Add("Id not Found.");
+            else
+                response.Value = _mapper.Map<GetClientResponse>(result);
 
             return response;
         }
 
-        public async Task<List<GetClientResponse>> GetList()
+        public async Task<Response<List<GetClientResponse>>> GetList()
         {
+            var response = new Response<List<GetClientResponse>>();
+
             var clients = await _repository.GetList();
-            var response = _mapper.Map<List<GetClientResponse>>(clients);
+            response.Value = _mapper.Map<List<GetClientResponse>>(clients);
 
             return response;
         }
 
-        public async Task<string> Create(CreateClientRequest request)
+        public async Task<Response<string>> Create(CreateClientRequest request)
         {
-            var client = _mapper.Map<Client>(request);
-            var id = await _repository.Create(client);
+            var response = new Response<String>();
 
-            return id;
+            if (!await ValidateCEP(request.Cep))
+            {
+                response.Errors.Add("Cep not valid.");
+                return response;
+            }
+
+            var client = _mapper.Map<Client>(request);
+            response.Value = await _repository.Create(client);
+
+            return response;
         }
 
-        public async Task<GetClientResponse> Update(UpdateClientRequest request)
+        public async Task<Response<GetClientResponse>> Update(UpdateClientRequest request)
         {
+            var response = new Response<GetClientResponse>();
+
+            if (!await ValidateCEP(request.Cep))
+            {
+                response.Errors.Add("Cep not valid.");
+                return response;
+            }
+
             var client = _mapper.Map<Client>(request);
             var result = await _repository.Update(client);
-            var response = _mapper.Map<GetClientResponse>(client);
+
+
+            if (result == null)
+                response.Errors.Add("Id not Found.");
+            else
+                response.Value = _mapper.Map<GetClientResponse>(result);
 
             return response;
         }
 
-        public async Task<bool> Delete(string id)
+        public async Task<bool> Delete(long id)
         {
             var result = await _repository.Delete(id);
             return result;

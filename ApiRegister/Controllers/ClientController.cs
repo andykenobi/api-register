@@ -1,4 +1,5 @@
-﻿using ApiRegister.DTOs.Clients;
+﻿using ApiRegister.DTOs;
+using ApiRegister.DTOs.Clients;
 using ApiRegister.Services.Clients;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,35 +17,39 @@ namespace ApiRegister.Controllers
         }
 
         [HttpGet]
-        public async Task<GetClientResponse> Get(string Id)
+        public async Task<ActionResult<Response<GetClientResponse>>> Get([FromQuery] long Id)
         {
             var response = await _clientService.Get(Id);
+
             return response;
         }
 
         [HttpGet("list")]
-        public async Task<List<GetClientResponse>> GetList()
+        public async Task<ActionResult<Response<List<GetClientResponse>>>> GetList()
         {
             var response = await _clientService.GetList();
+
             return response;
         }
 
         [HttpPost]
-        public async Task<string> Create(CreateClientRequest createClientRequest)
+        public async Task<ActionResult<Response<string>>> Create(CreateClientRequest createClientRequest)
         {
             var response = await _clientService.Create(createClientRequest);
+
             return response;
         }
 
         [HttpPut]
-        public async Task<GetClientResponse> Update(UpdateClientRequest updateClientRequest)
+        public async Task<ActionResult<Response<GetClientResponse>>> Update(UpdateClientRequest updateClientRequest)
         {
             var response = await _clientService.Update(updateClientRequest);
+
             return response;
         }
 
         [HttpDelete]
-        public async Task<bool> Delete(string id)
+        public async Task<bool> Delete(long id)
         {
             var response = await _clientService.Delete(id);
             return response;

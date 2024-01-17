@@ -1,13 +1,14 @@
-﻿using ApiRegister.DTOs.Clients;
+﻿using ApiRegister.DTOs;
+using ApiRegister.DTOs.Clients;
 
 namespace ApiRegister.Services.Clients
 {
     public interface IClientService
     {
-        Task<GetClientResponse> Get(string id);
-        Task<List<GetClientResponse>> GetList();
-        Task<string> Create(CreateClientRequest request);
-        Task<GetClientResponse> Update(UpdateClientRequest request);
-        Task<bool> Delete(string id);
+        Task<Response<GetClientResponse>> Get(long id);
+        Task<Response<List<GetClientResponse>>> GetList();
+        Task<Response<string>> Create(CreateClientRequest request);
+        Task<Response<GetClientResponse>> Update(UpdateClientRequest request);
+        Task<bool> Delete(long id);
     }
 }
