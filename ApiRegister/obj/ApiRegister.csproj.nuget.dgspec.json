@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andyk\\source\\repos\\api-register\\ApiRegister\\ApiRegister\\ApiRegister.csproj": {}
+    "C:\\Users\\andyk\\source\\repos\\api-register\\ApiRegister\\ApiRegister.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andyk\\source\\repos\\api-register\\ApiRegister\\ApiRegister\\ApiRegister.csproj": {
+    "C:\\Users\\andyk\\source\\repos\\api-register\\ApiRegister\\ApiRegister.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andyk\\source\\repos\\api-register\\ApiRegister\\ApiRegister\\ApiRegister.csproj",
+        "projectUniqueName": "C:\\Users\\andyk\\source\\repos\\api-register\\ApiRegister\\ApiRegister.csproj",
         "projectName": "ApiRegister",
-        "projectPath": "C:\\Users\\andyk\\source\\repos\\api-register\\ApiRegister\\ApiRegister\\ApiRegister.csproj",
+        "projectPath": "C:\\Users\\andyk\\source\\repos\\api-register\\ApiRegister\\ApiRegister.csproj",
         "packagesPath": "C:\\Users\\andyk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andyk\\source\\repos\\api-register\\ApiRegister\\ApiRegister\\obj\\",
+        "outputPath": "C:\\Users\\andyk\\source\\repos\\api-register\\ApiRegister\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andyk\\AppData\\Roaming\\NuGet\\NuGet.Config",
