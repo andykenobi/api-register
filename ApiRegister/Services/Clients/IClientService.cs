@@ -9,6 +9,6 @@ namespace ApiRegister.Services.Clients
         Task<Response<List<GetClientResponse>>> GetList();
         Task<Response<string>> Create(CreateClientRequest request);
         Task<Response<GetClientResponse>> Update(UpdateClientRequest request);
-        Task<bool> Delete(long id);
+        Task<Response<bool>> Delete(long id);
     }
 }

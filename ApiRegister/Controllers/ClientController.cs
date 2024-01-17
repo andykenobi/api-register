@@ -21,6 +21,7 @@ namespace ApiRegister.Controllers
         {
             var response = await _clientService.Get(Id);
 
+
             return response;
         }
 
@@ -49,7 +50,7 @@ namespace ApiRegister.Controllers
         }
 
         [HttpDelete]
-        public async Task<bool> Delete(long id)
+        public async Task<Response<bool>> Delete(long id)
         {
             var response = await _clientService.Delete(id);
             return response;

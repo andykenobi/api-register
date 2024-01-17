@@ -1,7 +1,9 @@
-﻿namespace ApiRegister.Services.Viaceps
+﻿using ApiRegister.DTOs;
+
+namespace ApiRegister.Services.Viaceps
 {
     public interface IViacepService
     {
-        Task<bool> Validate(string cep);
+        Task<Response<bool>> Validate(string cep);
     }
 }

@@ -82,16 +82,18 @@ namespace ApiRegister.Services.Clients
             return response;
         }
 
-        public async Task<bool> Delete(long id)
+        public async Task<Response<bool>> Delete(long id)
         {
-            var result = await _repository.Delete(id);
-            return result;
+            var response = new Response<bool>();
+            response.Value = await _repository.Delete(id);
+
+            return response;
         }
 
         private async Task<bool> ValidateCEP(string cep)
         {
             var result = await _viacepService.Validate(cep);
-            return result;
+            return result.Value;
         }
     }
 }

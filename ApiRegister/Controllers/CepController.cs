@@ -1,4 +1,5 @@
-﻿using ApiRegister.Services.Viaceps;
+﻿using ApiRegister.DTOs;
+using ApiRegister.Services.Viaceps;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiRegister.Controllers
@@ -15,7 +16,7 @@ namespace ApiRegister.Controllers
         }
 
         [HttpGet("validate")]
-        public async Task<bool> Get(string cep)
+        public async Task<Response<bool>> Get(string cep)
         {
             var response = await _viacepService.Validate(cep);
             return response;

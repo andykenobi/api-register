@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using ApiRegister.DTOs;
+using System.Net.Http;
 
 namespace ApiRegister.Services.Viaceps
 {
@@ -8,12 +9,15 @@ namespace ApiRegister.Services.Viaceps
 
         public ViacepService() { }
 
-        public async Task<bool> Validate(string cep)
+        public async Task<Response<bool>> Validate(string cep)
         {
-            var response = await _httpClient.GetAsync($"https://viacep.com.br/ws/{cep}/json/");
-            var result = response.IsSuccessStatusCode;
+            var response = new Response<bool>();
+            
+            var viacepResponse = await _httpClient.GetAsync($"https://viacep.com.br/ws/{cep}/json/");
+            
+            response.Value = viacepResponse.IsSuccessStatusCode;
 
-            return result;
+            return response;
         }
     }
 }
