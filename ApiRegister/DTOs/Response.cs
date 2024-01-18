@@ -1,4 +1,6 @@
-﻿namespace ApiRegister.DTOs
+﻿using FluentValidation.Results;
+
+namespace ApiRegister.DTOs
 {
     public class Response<T>
     {
@@ -15,6 +17,14 @@
         public Response(List<string> errors)
         {
             Errors = errors;
+        }
+
+        public void AddErrors(List<ValidationFailure> errors)
+        {
+            foreach (var error in errors)
+            {
+                this.Errors.Add(error.ErrorMessage);
+            }
         }
     }
 }

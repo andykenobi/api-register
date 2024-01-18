@@ -16,16 +16,15 @@ namespace ApiRegister.Controllers
             _clientService = clientService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<Response<GetClientResponse>>> Get([FromQuery] long Id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Response<GetClientResponse>>> Get(long id)
         {
-            var response = await _clientService.Get(Id);
-
+            var response = await _clientService.Get(id);
 
             return response;
         }
 
-        [HttpGet("list")]
+        [HttpGet]
         public async Task<ActionResult<Response<List<GetClientResponse>>>> GetList()
         {
             var response = await _clientService.GetList();
@@ -38,6 +37,11 @@ namespace ApiRegister.Controllers
         {
             var response = await _clientService.Create(createClientRequest);
 
+            if (response.Errors.Count > 0)
+            {
+                return BadRequest(response);
+            }
+
             return response;
         }
 
@@ -49,7 +53,7 @@ namespace ApiRegister.Controllers
             return response;
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<Response<bool>> Delete(long id)
         {
             var response = await _clientService.Delete(id);

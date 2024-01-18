@@ -4,6 +4,8 @@ using ApiRegister.Models;
 using ApiRegister.Repositories.Clients;
 using ApiRegister.Services.Viaceps;
 using AutoMapper;
+using FluentValidation;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApiRegister.Services.Clients
 {
@@ -12,12 +14,16 @@ namespace ApiRegister.Services.Clients
         private IViacepService _viacepService;
         private IClientRepository _repository;
         private IMapper _mapper;
+        private IValidator<CreateClientRequest> _createClientValidator;
+        private IValidator<UpdateClientRequest> _updateClientValidator;
 
-        public ClientService(IViacepService viacepService, IClientRepository repository, IMapper mapper)
+        public ClientService(IViacepService viacepService, IClientRepository repository, IMapper mapper, IValidator<CreateClientRequest> createClientValidator, IValidator<UpdateClientRequest> updateClientValidator)
         {
             _viacepService = viacepService;
             _repository = repository;
             _mapper = mapper;
+            _createClientValidator = createClientValidator;
+            _updateClientValidator = updateClientValidator;
         }
 
         public async Task<Response<GetClientResponse>> Get(long id)
@@ -48,9 +54,16 @@ namespace ApiRegister.Services.Clients
         {
             var response = new Response<String>();
 
+            var validationResult = _createClientValidator.Validate(request);
+            response.AddErrors(validationResult.Errors);
+            
             if (!await ValidateCEP(request.Cep))
             {
-                response.Errors.Add("Cep not valid.");
+                response.Errors.Add("CEP not valid.");
+            }
+
+            if (response.Errors.Count > 0)
+            {
                 return response;
             }
 
@@ -64,9 +77,16 @@ namespace ApiRegister.Services.Clients
         {
             var response = new Response<GetClientResponse>();
 
+            var validationResult = _updateClientValidator.Validate(request);
+            response.AddErrors(validationResult.Errors);
+
             if (!await ValidateCEP(request.Cep))
             {
-                response.Errors.Add("Cep not valid.");
+                response.Errors.Add("CEP not valid.");
+            }
+
+            if (response.Errors.Count > 0)
+            {
                 return response;
             }
 
@@ -93,7 +113,7 @@ namespace ApiRegister.Services.Clients
         private async Task<bool> ValidateCEP(string cep)
         {
             var result = await _viacepService.Validate(cep);
-            return result.Value;
+            return result;
         }
     }
 }

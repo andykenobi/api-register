@@ -1,10 +1,15 @@
 using ApiRegister.Context;
+using ApiRegister.DTOs.Clients;
 using ApiRegister.Mapper;
 using ApiRegister.Repositories.Clients;
 using ApiRegister.Services.Clients;
 using ApiRegister.Services.Viaceps;
+using ApiRegister.Validations.Clients;
 using AutoMapper;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +27,10 @@ builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IViacepService, ViacepService>();
 builder.Services.AddDbContext<ApiRegisterContext>();
 
+//builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddTransient<IValidator<CreateClientRequest>, CreateClientValidation>();
+builder.Services.AddTransient<IValidator<UpdateClientRequest>, UpdateClientValidation>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,5 +45,11 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors(builder => builder
+       .AllowAnyHeader()
+       .AllowAnyMethod()
+       .AllowAnyOrigin()
+    );
 
 app.Run();

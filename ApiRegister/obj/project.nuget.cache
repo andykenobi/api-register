@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "jXyoyJYHsfoAt7fRfpBaloFVHg5AIxv3MDbxh8rJNnsXA/4Cvi5k63BP6jTBVRlfIuHofzGzAyWn7dNLhdiqVQ==",
+  "dgSpecHash": "uxz0fAh+szzL3NDK9fN+oSEp2MxLuTkbC+hKMmmR7OStmcO5d4Y9xqQjUamPWn3avfVdgE1XZ66gif5zLvmUIA==",
   "success": true,
   "projectFilePath": "C:\\Users\\andyk\\source\\repos\\api-register\\ApiRegister\\ApiRegister.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andyk\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\andyk\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\andyk\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\andyk\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\andyk\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\andyk\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\andyk\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0\\microsoft.entityframeworkcore.7.0.0.nupkg.sha512",
     "C:\\Users\\andyk\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0\\microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512",

@@ -43,3 +43,6 @@ C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.
 C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\FluentValidation.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+C:\Users\andyk\source\repos\api-register\ApiRegister\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

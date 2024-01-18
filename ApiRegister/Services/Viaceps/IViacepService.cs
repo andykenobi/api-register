@@ -4,6 +4,6 @@ namespace ApiRegister.Services.Viaceps
 {
     public interface IViacepService
     {
-        Task<Response<bool>> Validate(string cep);
+        Task<bool> Validate(string cep);
     }
 }
